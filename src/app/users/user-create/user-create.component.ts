@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {TankService} from '../tank.service';
+import {UserService} from '../user.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'tank-create',
-  templateUrl: './tank-create.component.html',
-  styleUrls: ['./tank-create.component.css']
+  selector: 'user-create',
+  templateUrl: './user-create.component.html',
+  styleUrls: ['./user-create.component.css']
 })
 
-export class TankCreateComponent implements OnInit {
+export class UserCreateComponent implements OnInit {
 
-  tank:Object;
+  user:Object;
 
   constructor(
-    private tankService:TankService,
+    private tankService:UserService,
     private router:Router
   ) { }
 
   ngOnInit() {
-    this.tank= {};
+    this.user= {};
    
   }
-  createTank(tank:Object) {
-    this.tankService.addTank(tank).then((resp) => {
-      this.router.navigate(['/tanks']);
+  createUser(user:Object) {
+    this.userService.addUser(user).then((resp) => {
+      this.router.navigate(['/users']);
     });
   }
 

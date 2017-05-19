@@ -1,18 +1,18 @@
-<button class="btn" [routerLink]="['/tanks']">back to tanks</button>
+<button class="btn" [routerLink]="['/users']">back to users</button>
 
-<div *ngIf="tank" class="book-create-container box-shadow">
+<div *ngIf="user" class="user-create-container box-shadow">
     <div class="cover">
-        <img class="tank-cover" src="#" alt="tank">
+        <img class="user-cover" src="#" alt="user">
     </div>
-    <div class="tank-form">
-        <label class="label">Tank Name</label>
-        <input [(ngModel)]="tank.tank_name" class="form-input" type="text">
-        <label class="label">Serial Number</label>
-        <input [(ngModel)]="tank.serial_number" class="form-input" type="text">
-        <label class="label">Gallons</label>
-        <input [(ngModel)]="tank.gallons" class="form-input" type="integer">
+    <div class="user-form">
+        <label class="label">UserName</label>
+        <input [(ngModel)]="user.username" class="form-input" type="text">
+        <label class="label">Password</label>
+        <input [(ngModel)]="user.password" class="form-input" type="text">
+        <label class="label">Role</label>
+        <input [(ngModel)]="user.role" class="form-input" type="text">
         <label class="label">Active</label>
-        <input [(ngModel)]="tank.active" class="form-input" type="text">
-        <button (click)="updateTank(tank.id, tank)" class="btn pull-right">Update Tank</button>
+        <input [(ngModel)]="user.active" class="form-input" type="text">
+        <button (click)="updateUser(user.id, user)" class="btn pull-right">Update UserProfile</button>
     </div>
 </div>

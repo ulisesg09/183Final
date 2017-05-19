@@ -1,38 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { TankService } from '../tank.service';
+import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tank',
-  templateUrl: './tank.component.html',
-  styleUrls: ['./tank.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class TankComponent implements OnInit {
+export class UserComponent implements OnInit {
 
-  tank: Object;
+  user: Object;
 
   constructor(
-    private tankService: TankService,
+    private userService: UserService,
     private router:Router,
     private activatedRoute: ActivatedRoute
   ) { }
 
  ngOnInit() {
     console.log(this.activatedRoute.snapshot.params['id'])
-    this.tankService.getTankById(this.activatedRoute.snapshot.params['id'])
+    this.userService.getUserById(this.activatedRoute.snapshot.params['id'])
       .then((resp) => {
-        console.log('resp tank', resp);
-        this.tank = resp;
+        console.log('resp user', resp);
+        this.user = resp;
      });
   }
 
-  updateTank(id, tank:Object) {
-    console.log('tank', tank);
+  updateUser(id, user:Object) {
+    console.log('user', user);
     
-    this.tankService.updateTank(id, tank).then((resp) => {
+    this.userService.updateUser(id, user).then((resp) => {
       console.log('resp', resp);
       if(resp) {
-        this.router.navigate(['tanks']);
+        this.router.navigate(['users']);
       }
     });
   }
